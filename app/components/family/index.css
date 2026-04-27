@@ -173,10 +173,8 @@
 
 /* Dấu & ở giữa: Giữ nguyên căn giữa */
 .name-ampersand {
-  font-family: "Alex Brush", cursive;
-  font-size: 1.5rem;
-  color: var(--accent);
-  margin: 5px 0;
+  font-size: 2.5rem;
+  color: red;
 }
 
 /* Tên cô dâu: Đẩy sang trái */

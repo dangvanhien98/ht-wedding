@@ -38,7 +38,7 @@ export default function Family() {
         <p className="intro-text">Trân Trọng Báo Tin Lễ Thành Hôn Của</p>
         <div className="names-wrapper">
           <div className="name-item name-groom">Đặng Văn Hiền</div>
-          <div className="name-ampersand">&</div>
+          <div className="name-ampersand">♥</div>
           <div className="name-item name-bride">Phan Thị Thuận</div>
         </div>
       </div>

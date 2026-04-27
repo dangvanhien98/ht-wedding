@@ -12,10 +12,10 @@ export default function Welcome() {
         <div className="name-wrapper reveal-left">
           <h1 className="name">Văn Hiền</h1>
           <span
-            className="ampersand reveal-fade"
-            style={{ transitionDelay: "0.5s" }}
+            className="ampersand reveal-fade heart-icon"
+            style={{ transitionDelay: "1s" }}
           >
-            &
+            ♥
           </span>
           <h1 className="name reveal-right" style={{ transitionDelay: "0.8s" }}>
             Thị Thuận

@@ -49,7 +49,6 @@
 .ampersand {
   font-family: "Alex Brush", cursive;
   font-size: 2rem;
-  color: var(--accent);
   margin: 10px 0;
   display: block;
 }
@@ -134,5 +133,38 @@
   }
   100% {
     transform: scale(1.1) translate(-2%, -2%);
+  }
+}
+
+/* Style cho trái tim màu trắng */
+.heart-icon {
+  font-family: "Alex Brush", cursive;
+  font-size: 3rem;
+  color: #ffffff; /* Màu trắng tinh khiết */
+  display: inline-block;
+  margin: 0 15px;
+  vertical-align: middle;
+  /* Đổ bóng nhẹ để trái tim nổi bật trên nền ảnh */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hiệu ứng nhịp đập nhẹ nhàng cho trái tim trắng */
+.active.heart-icon {
+  animation: heartPulseWhite 2.5s infinite ease-in-out;
+  animation-delay: 2s; /* Bắt đầu đập sau khi lướt xong */
+}
+
+@keyframes heartPulseWhite {
+  0% { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+  50% { 
+    transform: scale(1.1); 
+    opacity: 0.8; /* Tạo hiệu ứng hơi mờ ảo khi đập */
+  }
+  100% { 
+    transform: scale(1); 
+    opacity: 1; 
   }
 }
