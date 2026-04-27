@@ -1,0 +1,91 @@
+/* Section Album */
+.section-album {
+  padding: 0px 20px;
+  background-color: #f9fbfd;
+  text-align: center;
+}
+
+.album-title {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  letter-spacing: 3px;
+  margin-bottom: 30px;
+  color: #000;
+  text-transform: uppercase;
+}
+
+/* Layout Grid */
+.album-grid {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.photo-large {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.photo-large img {
+  width: 100%;
+  display: block;
+  border-radius: 4px; /* Bo góc nhẹ cho giống ảnh mẫu */
+  object-fit: cover;
+}
+
+.photo-row {
+  display: flex;
+  gap: 10px; /* Khoảng cách giữa 2 ảnh */
+  margin-bottom: 10px;
+}
+
+.photo-small {
+  flex: 1;
+}
+
+.photo-small img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+/* Trích dẫn (Quote) */
+.album-quote {
+  margin: 40px auto 30px; /* Căn trên 40px, dưới 30px theo ý bạn */
+  font-family: "Dancing Script", cursive;
+  font-size: 22px;
+  line-height: 1.6;
+  color: #444;
+  font-style: italic;
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 600px) {
+  .album-title {
+    font-size: 22px;
+  }
+  .album-quote {
+    font-size: 18px;
+  }
+}
+
+/* Trạng thái ban đầu: Ẩn và nằm hơi thấp xuống */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out; /* Tốc độ xuất hiện */
+  visibility: hidden;
+}
+
+/* Trạng thái sau khi cuộn tới: Hiện lên và về vị trí cũ */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Thêm hiệu ứng trễ cho từng ảnh trong grid để tạo cảm giác chuyên nghiệp */
+.photo-small:nth-child(2) {
+  transition-delay: 0.2s;
+}

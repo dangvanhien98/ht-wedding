@@ -1,0 +1,80 @@
+/* --- SECTION INFO --- */
+.section-info {
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.alternate {
+  margin-top: -40px;
+}
+
+.info-card {
+  border: 1px solid #eee;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.title {
+  font-family: "EB Garamond", serif;
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 30px;
+}
+
+.time {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.day {
+  font-weight: 500;
+  margin: 5px 0;
+}
+
+.lunar {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.location {
+  margin: 30px 0;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.place-name {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.btn-map {
+  display: inline-block;
+  padding: 10px 25px;
+  border: 1px solid #333;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Trạng thái mặc định: Ẩn và đẩy sang trái (dành cho Nhà trai) */
+.section-info .info-card {
+    opacity: 0;
+    transform: translateX(-50px); 
+    transition: opacity 3s cubic-bezier(0.2, 0, 0, 1), 
+                transform 3s cubic-bezier(0.2, 0, 0, 1);
+    will-change: transform, opacity;
+}
+
+/* Nếu là bản Alternate (Nhà gái): Ẩn và đẩy sang phải */
+.section-info.alternate .info-card {
+    transform: translateX(50px);
+}
+
+/* Khi cuộn tới (JS thêm class active) */
+.section-info .info-card.active {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}

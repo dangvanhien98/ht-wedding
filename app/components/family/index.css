@@ -1,0 +1,187 @@
+/* --- SECTION FAMILY SETUP --- */
+.section-family {
+  /* Nền trắng sạch sẽ như ảnh mẫu */
+  text-align: center;
+}
+
+.family-column {
+  flex: 1;
+  /* Chia đều 2 bên */
+  padding: 0 10px;
+}
+
+.family-title {
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  color: var(--accent);
+  /* Màu vàng đồng hoặc màu bạn đã định nghĩa */
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.parents-info {
+  font-family: "EB Garamond", serif;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  margin: 20px;
+}
+
+.parents-info strong {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.divider-line {
+  width: 30px;
+  /* Đường kẻ ngắn giữa tên và địa chỉ */
+  height: 1px;
+  margin: 15px auto;
+  background-color: #676767;
+}
+
+.divider-line-section-2 {
+  width: 200px;
+  height: 1px;
+  margin: 20px auto;
+  background-image: linear-gradient(
+    to right,
+    #676767 50%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 10px 1px;
+  background-repeat: repeat-x;
+}
+.family-address {
+  font-size: 0.75rem;
+  color: #888;
+  line-height: 1.6;
+  font-family: "Montserrat", sans-serif;
+  word-break: break-word;
+}
+
+/* Hiệu ứng mờ dần cho Nhà Trai (Từ trái sang nhẹ) */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-15px); /* Giảm khoảng cách để tránh vỡ div */
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  visibility: hidden;
+}
+
+/* Hiệu ứng mờ dần cho Nhà Gái (Từ phải sang nhẹ) */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(15px); /* Giảm khoảng cách */
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  visibility: hidden;
+}
+
+/* Khi active (khi cuộn tới) */
+.reveal-left.active, 
+.reveal-right.active {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  visibility: visible !important;
+}
+
+/* Tối ưu cho Mobile nhỏ */
+@media (max-width: 360px) {
+  .family-column h3 {
+    font-size: 0.7rem;
+  }
+
+  .parents-info {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- PHẦN HÌNH ẢNH TRONG FAMILY SECTION --- */
+.family-visual {
+  position: relative;
+  width: 85%;
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.visual-image-frame {
+  width: 100%;
+  height: 450px;
+  /* Độ cao ảnh tùy chỉnh */
+  border-radius: 200px 200px 0 0;
+  /* Bo tròn đầu kiểu vòm như mẫu */
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.visual-image {
+  width: 100%;
+  height: 100%;
+  /* Bạn thay link ảnh cặp đôi của bạn vào đây */
+  background: url("/image/anh1.jpg") center/cover no-repeat;
+}
+
+.save-the-date-badge {
+  position: absolute;
+  bottom: -20px;
+  /* Cho chữ hơi đè lên mép dưới ảnh */
+  background: #fff;
+  padding: 10px 25px;
+  border: 1px solid var(--accent);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.save-the-date-badge span {
+  font-family: "EB Garamond", serif;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+/* Điều chỉnh khoảng cách cho wrapper gia đình bên dưới */
+.family-wrapper {
+  /* Tạo khoảng cách sau ảnh */
+  display: flex;
+  justify-content: space-between;
+  max-width: 420px;
+  padding: 20px 10px;
+}
+
+/* Container bao quanh cả 3 dòng: Chú rể - & - Cô dâu */
+.names-wrapper {
+  display: flex;
+  flex-direction: column; /* Xếp theo chiều dọc */
+  align-items: center; /* Căn giữa mặc định */
+  width: 100%;
+  overflow: hidden; /* Đảm bảo không bị tràn */
+}
+
+/* Tên chú rể: Đẩy sang phải */
+.name-groom {
+  display: flex;
+  align-self: flex-start; /* Căn về bên trái của container */
+  margin-left: 8%; /* Dùng margin để đẩy nhẹ vào thay vì transform */
+}
+
+/* Dấu & ở giữa: Giữ nguyên căn giữa */
+.name-ampersand {
+  font-family: "Alex Brush", cursive;
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin: 5px 0;
+}
+
+/* Tên cô dâu: Đẩy sang trái */
+.name-bride {
+  display: flex;
+  align-self: flex-end; /* Căn về bên phải của container */
+  margin-right: 8%; /* Dùng margin để đẩy nhẹ vào */
+}

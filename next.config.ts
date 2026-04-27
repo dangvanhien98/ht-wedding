@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true, // Bắt buộc nếu dùng 'output: export' vì Next.js không thể tối ưu ảnh phía server khi xuất tĩnh
   },
-  allowedDevOrigins: ['192.168.1.2'],
+  allowedDevOrigins: ['192.168.88.171'],
 };
 
 export default nextConfig;

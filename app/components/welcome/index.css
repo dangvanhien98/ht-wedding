@@ -1,0 +1,138 @@
+/* --- SECTION 1: WELCOME HIỆN ĐẠI --- */
+.section-welcome {
+  position: relative;
+  height: 100svh; /* Sử dụng svh để full màn hình mobile chuẩn nhất */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url("/image/anh4.jpg") center/cover no-repeat;
+  overflow: hidden;
+}
+
+/* Lớp phủ giúp ảnh dịu xuống và chữ nổi lên */
+.welcome-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2); /* Phủ một lớp tối nhẹ */
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 20px;
+}
+
+.label {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 5px;
+  font-size: 1.7rem;
+  margin-bottom: 100px;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+/* Tên ghép lại mượt mà hơn */
+.name-wrapper {
+  margin: 20px 0;
+}
+
+.name {
+  font-family: "Great Vibes", cursive;
+  font-size: 3.5rem; /* Tăng kích thước tên */
+  font-weight: 400;
+  line-height: 1.2;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.ampersand {
+  font-family: "Alex Brush", cursive;
+  font-size: 2rem;
+  color: var(--accent);
+  margin: 10px 0;
+  display: block;
+}
+
+/* Ngày tháng có đường kẻ 2 bên hiện đại */
+.date-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.date-text {
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  font-weight: 300;
+}
+
+.line {
+  width: 40px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* --- HIỆU ỨNG REVEAL HIỆN ĐẠI (TINH TẾ) --- */
+/* Hiệu ứng lướt chậm từ bên trái (Chú rể) */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px); /* Khoảng cách ngắn cho sang trọng */
+  /* 3s là thời gian chạy, cubic-bezier giúp lướt siêu mượt */
+  transition:
+    opacity 3s cubic-bezier(0.2, 0, 0, 1),
+    transform 3s cubic-bezier(0.2, 0, 0, 1);
+  will-change: transform, opacity;
+}
+
+/* Hiệu ứng lướt chậm từ bên phải (Cô dâu) */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition:
+    opacity 3s cubic-bezier(0.2, 0, 0, 1),
+    transform 3s cubic-bezier(0.2, 0, 0, 1);
+  will-change: transform, opacity;
+}
+
+/* Hiệu ứng mờ dần tại chỗ cho dấu & */
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 4s ease-in-out; /* Dấu & hiện ra chậm nhất để làm điểm nhấn */
+}
+
+/* Trạng thái khi kích hoạt */
+.active.reveal-left,
+.active.reveal-right {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.active.reveal-fade {
+  opacity: 1 !important;
+}
+
+/* Thêm hiệu ứng Zoom nhẹ cho Background khi load */
+.section-welcome {
+  animation: kenBurns 3s infinite alternate ease-in-out;
+}
+
+@keyframes slowZoom {
+  from {
+    background-size: 100%;
+  }
+  to {
+    background-size: 110%;
+  }
+}
+
+@keyframes kenBurns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.1) translate(-2%, -2%);
+  }
+}
