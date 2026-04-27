@@ -135,12 +135,12 @@ export default function WeddingPage() {
           <h2 className="title">TIỆC MỪNG LỄ THÀNH HÔN</h2>
           <div className="time-box">
             <p className="time">11:00</p>
-            <p className="day">Chủ Nhật | 14 . 12 . 2025</p>
-            <p className="lunar">(Tức ngày 25 tháng 10 năm Ất Tỵ)</p>
+            <p className="day">Thứ Tư | 29 . 07 . 2026</p>
+            <p className="lunar">(Tức ngày 16 tháng 06 năm Bính Ngọ)</p>
           </div>
           <div className="location">
             <p className="place-name">TƯ GIA NAM</p>
-            <p>664 Trường Sa, Ngũ Hành Sơn, Đà Nẵng</p>
+            <p>29 Phạm Thận Duật, Ngũ Hành Sơn, Đà Nẵng</p>
           </div>
           <a href="https://maps.google.com" className="btn-map" target="_blank">Xem bản đồ</a>
         </div>
@@ -150,13 +150,13 @@ export default function WeddingPage() {
         <div className="info-card reveal-up">
           <h2 className="title">TIỆC MỪNG LỄ VU QUY</h2>
           <div className="time-box">
-            <p className="time">10:30</p>
-            <p className="day">Thứ Bảy | 13 . 12 . 2025</p>
-            <p className="lunar">(Tức ngày 24 tháng 10 năm Ất Tỵ)</p>
+            <p className="time">11:00</p>
+            <p className="day">Chủ Nhật | 26 . 07 . 2026</p>
+            <p className="lunar">(Tức ngày 13 tháng 07 năm Bính Ngọ)</p>
           </div>
           <div className="location">
-            <p className="place-name">NHÀ SÁNG TÁC</p>
-            <p>Trung Hoà 1, Ngũ Hành Sơn, Đà Nẵng</p>
+            <p className="place-name">TƯ GIA NỮ</p>
+            <p>Bình Nguyên, Thăng Bình, Đà Nẵng</p>
           </div>
           <a href="https://goo.gl/maps/V69m8aTmWFu5em1A9" className="btn-map" target="_blank">Xem bản đồ</a>
         </div>
