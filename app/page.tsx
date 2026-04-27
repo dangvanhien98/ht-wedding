@@ -36,39 +36,60 @@ export default function WeddingPage() {
     handleInitialLoad();
 
     // 2. Xử lý Nhạc nền
-    let isPlaying = false;
-    const audio = audioRef.current;
-    const disc = musicBtnRef.current?.querySelector(".disc");
+    // 2. Xử lý Nhạc nền
+const audio = audioRef.current;
+const musicBtn = musicBtnRef.current;
+const disc = musicBtn?.querySelector(".disc");
+let isPlaying = false;
 
-    const toggleMusic = () => {
-      if (!audio || !disc) return;
-      if (isPlaying) {
-        audio.pause();
-        disc.classList.remove("playing");
-      } else {
-        audio.play().catch(() => {
-          console.log("Cần tương tác người dùng để bật nhạc");
-        });
-        disc.classList.add("playing");
-      }
-      isPlaying = !isPlaying;
-    };
+const playMusic = () => {
+  if (audio && !isPlaying) {
+    audio.play()
+      .then(() => {
+        isPlaying = true;
+        disc?.classList.add("playing");
+        // Quan trọng: Xóa các sự kiện sau khi nhạc đã bật thành công
+        removeAllListeners();
+      })
+      .catch((err) => console.log("Chờ tương tác để phát nhạc..."));
+  }
+};
 
-    const musicBtn = musicBtnRef.current;
-    musicBtn?.addEventListener("click", toggleMusic);
+const toggleMusic = (e: Event) => {
+  e.stopPropagation(); // Ngăn sự kiện click lan ra body
+  if (!audio || !disc) return;
+  
+  if (isPlaying) {
+    audio.pause();
+    disc.classList.remove("playing");
+  } else {
+    audio.play();
+    disc.classList.add("playing");
+  }
+  isPlaying = !isPlaying;
+  // Khi người dùng chủ động bấm nút, ta cũng coi như xong nhiệm vụ tự động
+  removeAllListeners(); 
+};
 
-    // Tự động bật nhạc sau khi người dùng chạm vào màn hình lần đầu
-    const autoPlayOnce = () => {
-      if (!isPlaying) toggleMusic();
-      document.body.removeEventListener("click", autoPlayOnce);
-    };
-    document.body.addEventListener("click", autoPlayOnce);
+const removeAllListeners = () => {
+  window.removeEventListener("scroll", playMusic);
+  document.body.removeEventListener("click", playMusic);
+  document.body.removeEventListener("touchstart", playMusic);
+};
 
-    return () => {
-      observer.disconnect();
-      musicBtn?.removeEventListener("click", toggleMusic);
-      document.body.removeEventListener("click", autoPlayOnce);
-    };
+// Đăng ký các sự kiện để "kích hoạt" nhạc tự động
+window.addEventListener("scroll", playMusic, { passive: true });
+document.body.addEventListener("click", playMusic);
+document.body.addEventListener("touchstart", playMusic);
+
+// Sự kiện riêng cho nút bấm (luôn tồn tại để tắt/mở thủ công)
+musicBtn?.addEventListener("click", toggleMusic);
+
+return () => {
+  observer.disconnect();
+  musicBtn?.removeEventListener("click", toggleMusic);
+  removeAllListeners();
+};
   }, []);
 
   return (
