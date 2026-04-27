@@ -1,0 +1,556 @@
+:root {
+    --bg-color: #fdfbf7;
+    --text-primary: #222;
+    --text-secondary: #777;
+    --accent: #c9a55c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f9fbfd; 
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-primary);
+}
+
+.main-wrapper {
+    max-width: 420px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+/* --- SECTION 1: WELCOME --- */
+.section-welcome {
+    height: 650px;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: url('/image/anh1.jpg') center/cover no-repeat;
+    /* Sử dụng ảnh background bạn gửi */
+}
+
+.label {
+    font-family: 'SVN-Mightiest.otf', sans-serif;
+    letter-spacing: 8px;
+    font-size: 40px;
+    line-height: 1;
+}
+
+.name-container {
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* Quan trọng để chữ không bị tràn khi chạy */
+}
+
+.name-container h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 20px;
+    letter-spacing: 4px;
+    line-height: 3;
+    text-align: center;
+}
+
+.ampersand {
+    font-family: 'Alex Brush', cursive;
+    font-size: 2.5rem;
+    color: var(--accent);
+    display: block;
+}
+
+/* --- HIỆU ỨNG CHỮ CHẠY TỪ 2 BÊN --- */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s ease;
+}
+
+.reveal-fade {
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+.active {
+    opacity: 1 !important;
+    transform: translate(0) !important;
+}
+
+/* --- SECTION INFO --- */
+.section-info {
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.alternate {
+    margin-top: -40px;
+}
+
+.info-card {
+    border: 1px solid #eee;
+    padding: 40px 20px;
+    position: relative;
+}
+
+.title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--accent);
+    margin-bottom: 30px;
+}
+
+.time {
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+.day {
+    font-weight: 500;
+    margin: 5px 0;
+}
+
+.lunar {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.location {
+    margin: 30px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.place-name {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.btn-map {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid #333;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* --- MUSIC --- */
+.music-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.disc {
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+}
+
+.playing {
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+}
+
+/* --- SECTION FAMILY SETUP --- */
+.section-family {
+    /* Nền trắng sạch sẽ như ảnh mẫu */
+    text-align: center;
+}
+
+.family-column {
+    flex: 1;
+    /* Chia đều 2 bên */
+    padding: 0 10px;
+}
+
+.family-title {
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    color: var(--accent);
+    /* Màu vàng đồng hoặc màu bạn đã định nghĩa */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.parents-info {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  margin: 20px;
+}
+
+.parents-info strong {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.divider-line {
+    width: 30px;
+    /* Đường kẻ ngắn giữa tên và địa chỉ */
+    height: 1px;
+    margin: 15px auto;
+    background-color: #676767;
+}
+
+.divider-line-section-2 {
+width: 200px;
+    height: 1px;
+    margin: 20px auto;
+    background-image: linear-gradient(to right, #676767 50%, rgba(255,255,255,0) 0%);
+    background-position: bottom;
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+}
+.family-address {
+    font-size: 0.75rem;
+    color: #888;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+    word-break: break-word;
+}
+
+/* Hiệu ứng chạy từ 2 bên cho Nhà Trai và Nhà Gái */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 1s ease-out;
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 1s ease-out;
+}
+
+.active {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+/* Tối ưu cho Mobile nhỏ */
+@media (max-width: 360px) {
+    .family-column h3 {
+        font-size: 0.7rem;
+    }
+
+    .parents-info {
+        font-size: 0.9rem;
+    }
+}
+
+/* --- PHẦN HÌNH ẢNH TRONG FAMILY SECTION --- */
+.family-visual {
+    position: relative;
+    width: 85%;
+   margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.visual-image-frame {
+    width: 100%;
+    height: 450px;
+    /* Độ cao ảnh tùy chỉnh */
+    border-radius: 200px 200px 0 0;
+    /* Bo tròn đầu kiểu vòm như mẫu */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.visual-image {
+    width: 100%;
+    height: 100%;
+    /* Bạn thay link ảnh cặp đôi của bạn vào đây */
+    background: url('/image/anh1.jpg') center/cover no-repeat;
+}
+
+.save-the-date-badge {
+    position: absolute;
+    bottom: -20px;
+    /* Cho chữ hơi đè lên mép dưới ảnh */
+    background: #fff;
+    padding: 10px 25px;
+    border: 1px solid var(--accent);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.save-the-date-badge span {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+/* Điều chỉnh khoảng cách cho wrapper gia đình bên dưới */
+.family-wrapper {
+    /* Tạo khoảng cách sau ảnh */
+    display: flex;
+    justify-content: space-between;
+    max-width: 420px;
+    padding: 20px 10px;
+}
+
+/* Các hiệu ứng Animation cũ giữ nguyên */
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.couple-names {
+    padding-top: 20px;
+}
+
+/* --- FIX STYLE CHO TÊN CHIA 3 DÒNG --- */
+.names-wrapper {
+    align-items: center;
+    margin: 20px 0;
+}
+
+.name-item {
+    font-family: 'Great Vibes', cursive;
+    font-size: 25px;
+    /* Tăng kích thước để nổi bật */
+    color: var(--text-primary);
+    line-height: 1.1;
+    letter-spacing: 1px;
+}
+
+/* Tên chú rể lệch trái một chút */
+.name-groom {
+    display: flex;
+    transform: translateX(20px);
+}
+
+/* Dấu & ở giữa dùng font nghệ thuật */
+.name-ampersand {
+    font-family: 'Alex Brush', cursive;
+    font-size: 1.5rem;
+    color: var(--accent);
+    z-index: 2;
+}
+
+/* Tên cô dâu lệch phải một chút */
+.name-bride {
+    display: flex;
+    justify-content: flex-end;
+    transform: translateX(-20px);
+}
+
+/* Responsive cho mobile nhỏ */
+@media (max-width: 375px) {
+    .name-item {
+        font-size: 25px
+    }
+
+    .name-ampersand {
+        font-size: 2.5rem;
+    }
+
+    .name-groom {
+        transform: translateX(-15px);
+    }
+
+    .name-bride {
+        transform: translateX(15px);
+    }
+}
+
+/* --- CSS FOOTER MỚI --- */
+.section-footer {
+    padding: 20px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-thankyou {
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin: 15px 0;
+}
+
+.footer-welcome-msg {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text-primary);
+}
+
+.f-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: 2px;
+}
+
+.f-amp {
+    font-family: 'Alex Brush', cursive;
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin: 0 10px;
+}
+
+.footer-end-line {
+    width: 30px;
+    height: 1px;
+    opacity: 0.4;
+}
+
+/* Hiệu ứng trồi lên khi cuộn tới */
+.section-footer .reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Section Album */
+.section-album {
+    padding: 0px 20px;
+    background-color: #f9fbfd; 
+    text-align: center;
+}
+
+.album-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+    color: #000;
+    text-transform: uppercase;
+}
+
+/* Layout Grid */
+.album-grid {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.photo-large {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.photo-large img {
+    width: 100%;
+    display: block;
+    border-radius: 4px; /* Bo góc nhẹ cho giống ảnh mẫu */
+    object-fit: cover;
+}
+
+.photo-row {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa 2 ảnh */
+    margin-bottom: 10px;
+}
+
+.photo-small {
+    flex: 1;
+}
+
+.photo-small img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* Trích dẫn (Quote) */
+.album-quote {
+    margin: 40px auto 30px; /* Căn trên 40px, dưới 30px theo ý bạn */
+    font-family: 'Dancing Script', cursive;
+    font-size: 22px;
+    line-height: 1.6;
+    color: #444;
+    font-style: italic;
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 600px) {
+    .album-title {
+        font-size: 22px;
+    }
+    .album-quote {
+        font-size: 18px;
+    }
+}
+
+/* Trạng thái ban đầu: Ẩn và nằm hơi thấp xuống */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out; /* Tốc độ xuất hiện */
+    visibility: hidden;
+}
+
+/* Trạng thái sau khi cuộn tới: Hiện lên và về vị trí cũ */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* Thêm hiệu ứng trễ cho từng ảnh trong grid để tạo cảm giác chuyên nghiệp */
+.photo-small:nth-child(2) {
+    transition-delay: 0.2s;
+}
