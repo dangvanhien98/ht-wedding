@@ -46,13 +46,6 @@
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.ampersand {
-  font-family: "Alex Brush", cursive;
-  font-size: 2rem;
-  margin: 10px 0;
-  display: block;
-}
-
 /* Ngày tháng có đường kẻ 2 bên hiện đại */
 .date-box {
   display: flex;
