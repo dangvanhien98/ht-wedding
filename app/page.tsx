@@ -1,16 +1,32 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Footer from "./components/footer";
 import Welcome from "./components/welcome";
 import Family from "./components/family";
 import Info from "./components/info";
 import Album from "./components/Album";
+import OverLay from "./components/overlay/overlay";
 
 export default function WeddingPage() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const musicBtnRef = useRef<HTMLDivElement>(null);
+  // 1. Thêm State để quản lý việc mở bìa thiệp
+  const [isOpened, setIsOpened] = useState(false);
 
+  // 2. Hàm xử lý khi chạm vào con dấu để mở thiệp
+  const handleOpenInvitation = () => {
+    setIsOpened(true);
+
+    // Kích hoạt nhạc ngay khi người dùng tương tác mở thiệp
+    if (audioRef.current) {
+      audioRef.current
+        .play()
+        .catch((e) => console.log("Music play blocked", e));
+      const disc = musicBtnRef.current?.querySelector(".disc");
+      disc?.classList.add("playing");
+    }
+  };
   useEffect(() => {
     // 1. Xử lý hiệu ứng Reveal khi cuộn
     const reveals = document.querySelectorAll('[class*="reveal-"], .reveal');
@@ -100,6 +116,10 @@ export default function WeddingPage() {
 
   return (
     <div className="main-wrapper">
+      <OverLay
+        handleOpenInvitation={handleOpenInvitation}
+        isOpened={isOpened}
+      />
       <Welcome />
 
       <Family />

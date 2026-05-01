@@ -102,14 +102,6 @@ body {
   transform: translateX(20px);
 }
 
-/* Dấu & ở giữa dùng font nghệ thuật */
-.name-ampersand {
-  font-family: "Alex Brush", cursive;
-  font-size: 1.5rem;
-  color: var(--accent);
-  z-index: 2;
-}
-
 /* Responsive cho mobile nhỏ */
 @media (max-width: 375px) {
   .name-item {

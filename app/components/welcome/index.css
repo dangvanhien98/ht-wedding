@@ -89,12 +89,6 @@
   will-change: transform, opacity;
 }
 
-/* Hiệu ứng mờ dần tại chỗ cho dấu & */
-.reveal-fade {
-  opacity: 0;
-  transition: opacity 4s ease-in-out; /* Dấu & hiện ra chậm nhất để làm điểm nhấn */
-}
-
 /* Trạng thái khi kích hoạt */
 .active.reveal-left,
 .active.reveal-right {
@@ -131,14 +125,15 @@
 
 /* Style cho trái tim màu trắng */
 .heart-icon {
-  font-family: "Alex Brush", cursive;
-  font-size: 3rem;
-  color: #ffffff; /* Màu trắng tinh khiết */
+  margin: 10px;
   display: inline-block;
-  margin: 0 15px;
-  vertical-align: middle;
-  /* Đổ bóng nhẹ để trái tim nổi bật trên nền ảnh */
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: white !important;
+  /* Ép trình duyệt không dùng bộ màu của Emoji */
+  -webkit-text-fill-color: white; 
+  /* Chống đổ bóng mặc định của iOS */
+  text-shadow: none;
+  /* Nếu vẫn đỏ, hãy dùng shadow để che đi */
+  text-shadow: 0 0 0 white; 
 }
 
 /* Hiệu ứng nhịp đập nhẹ nhàng cho trái tim trắng */
